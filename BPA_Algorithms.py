@@ -7,4 +7,7 @@ list_dataset = [ [("p1", 30), ("p2", 20), ("p3", 10)],
 
 
 example_bpa = Bpa()
-example_bpa.bpa_test(list_dataset)
+
+scored = example_bpa.fa_algorithm(list_dataset)
+
+print (scored)

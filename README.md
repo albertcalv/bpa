@@ -1,19 +1,27 @@
-# BPA Algorithm
+# BPA Algorithms
 
-Implementation of Best Position Algorithm in python 3.5
+Implementation of Best Position Algorithms in python 3.5
 
-## Input Variables  
-The input variables for BPA are:
+## Fagin's Algorithm  
+Compute the aggregated rank of k items
+
+PRE:
 + List of list of tuples <tag, value>.
-
++ Lists of same lenght
++ k num of items in the solution, if k is not specified it's done by Naïve Algorithm (All tuples are ranked).
 
 ```
 List = List 1 + List 2 + ... + List M
-  Where the lenght of each List is the same
-Every List N tuples of <tag, value> and we assuming that are not sorted
+      Every list consist on <tag, value>
+```
+
+POST:
++ List of scoring
 
 ```
-+ K data items to check
+List = <tag, score> ... <tag _k, score_k>
+
+```
 
 ## Future Work  
 
@@ -30,3 +38,5 @@ The implementation is based on the following paper:
 [1] Reza Akbarinia, Esther Pacitti, Patrick Valduriez. Best Position Algorithms for Top-k Queries.
 ACM. International Conference on Very Large Data Bases (VLDB), Aug 2007, Vienna, Austria.
 ACM, pp.495-506, 2007. <inria-00378836>
+
+[2] http://www.inf.unibz.it/dis/teaching/SDB/reports/report_mitterer.pdf

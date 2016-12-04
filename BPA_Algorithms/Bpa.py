@@ -12,6 +12,7 @@ class Bpa:
             print("Error in Input data :(")
             raise
 
+
     def check_lenght_of_lists(self, set_of_lists):
         snitch = len(set_of_lists[0])
         for list_t in set_of_lists:
@@ -29,31 +30,46 @@ class Bpa:
         return set_of_lists_sorted
 
 
-    def bpa_test(self, set_of_lists, k=-1):
+    def sort_list(self, list_t):
+        list_sorted = sorted(list_t, key=lambda tup: tup[1], reverse=True)
+        return list_sorted
 
+
+    def scoring_function(self, set_of_tuples):
+        suma=0
+        for ttuple in set_of_tuples:
+            suma += ttuple[1]
+        return suma
+
+
+    def fa_algorithm(self, set_of_lists, k=-1):
         # Check data
         self.check_size_of_lists(set_of_lists)
         self.check_lenght_of_lists(set_of_lists)
 
-        len_set_of_list = len(set_of_lists)
         len_list = len(set_of_lists[0])
-
-        # If k is not set, k is equal to the size of the lists
         if k == -1 or k > len_list :
             k = len_list
 
-        #Sort the lists
-        set_of_lists = self.sort_lists(self, set_of_lists)
+        # Sort the lists
+        set_of_lists = self.sort_lists(set_of_lists)
 
-        #FA test
-        score = []
-        cuota = 0
+        # FA Algorithm
+        score = {}
+        len_set_of_list = len(set_of_lists)
+        for i in range(0, len_set_of_list-1):
+            for j in range(0, len_set_of_list):
+                sample = set_of_lists[i][j]
+                if sample[0] not in score:
+                    score[sample[0]] = sample[1]
+                    if len(score) == k:
+                        break
+                else:
+                    score[sample[0]] += sample[1]
 
-        while cuota < k:
-
-            for i in range(0, len_set_of_list):
-                for j in range(0, len_list):
-                    sample = set_of_lists[i][j][0]
-                    #print (sample)
-
-            cuota+=1
+        # Package into an array of tuples
+        result = []
+        for item, mean in score.items():
+            result.append((item, mean/len_set_of_list))
+            
+        return result
