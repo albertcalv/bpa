@@ -1,18 +1,18 @@
 # BPA Algorithms
 
-Implementation of Best Position Algorithms in python 3.5
+Implementation of Best Position Algorithms in Python 3.5
 
 ## Fagin's Algorithm  
-Compute the aggregated rank of k items
+Compute the aggregated rank of k items.
 
 PRE:
 + List of list of tuples <tag, value>.
-+ Lists of same lenght
++ Lists of same length.
 + k num of items in the solution, if k is not specified it's done by Naïve Algorithm (All tuples are ranked).
 
 ```
 List = List 1 + List 2 + ... + List M
-      Every list consist on <tag, value>
+      Every list consists on <tag, value>
 ```
 
 POST:
@@ -26,7 +26,7 @@ List = <tag, score> ... <tag _k, score_k>
 ## Future Work  
 
 ```
-- Add dataframes to improve performance
+- Add dataframes to improve performance.
 
 ```
 
